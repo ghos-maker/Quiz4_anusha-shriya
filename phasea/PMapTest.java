@@ -22,7 +22,32 @@ public class PMapTest {
 		m.put(1, 2);
 		assertEquals(2, m.size());
 	}
-
+	
+	@Test
+	public void testIsEmpty() {
+		PMap m = new PMap();
+		assertTrue(m.isEmpty());
+		m.put(0, 1);
+		assertEquals(false, m.isEmpty());
+	}
+	
+	@Test
+	public void testContainsKey() {
+		PMap m = new PMap();
+		assertEquals(false, m.containsKey(0));
+		m.put(0, 1);
+		assertEquals(true, m.containsKey(0));
+		assertEquals(false, m.containsKey(1));
+	}
+	
+	@Test
+	public void testContainsVal() {
+		PMap m = new PMap();
+		assertEquals(false, m.containsValue(0));
+		m.put(0, 1);
+		assertEquals(true, m.containsValue(1));
+		assertEquals(false, m.containsValue(2));
+	}
     @Test
     public void testPut() {
         PMap m = new PMap();
