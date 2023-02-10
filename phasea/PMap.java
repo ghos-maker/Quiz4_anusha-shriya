@@ -211,8 +211,8 @@ public class PMap {
     public PEntry[] entrySet() {
     	PEntry[] mappingArray = new PEntry[PMap.size()];
     	for(int i:PMap.entrySet()) {
-    		PEntry temp = (PEntry)PMap.getKey();
-    		mappingArray[i]= temp;
+    		PEntry temporary = (PEntry)PMap.getKey();
+    		mappingArray[i]= temporary;
     	}
         // TODO
         return mappingArray;
