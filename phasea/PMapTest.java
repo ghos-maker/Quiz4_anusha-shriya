@@ -9,7 +9,19 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.net.DatagramSocket;
+
 public class PMapTest {
+	
+	@Test
+	public void testSize() {
+		PMap m = new PMap();
+		assertEquals(0, m.size());
+		m.put(0, 1);
+		assertEquals(1, m.size());
+		m.put(1, 2);
+		assertEquals(2, m.size());
+	}
 
     @Test
     public void testPut() {

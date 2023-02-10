@@ -5,6 +5,10 @@
 
 package pmap.phasea;
 
+import java.awt.RenderingHints.Key;
+import java.awt.im.InputMethodHighlight;
+import java.util.zip.ZipEntry;
+
 /**
  * PMap stands for Paired Map. A map is a collection of key-value
  * pairs, e.g., (1, 2) (2, 3) (3, 4) are all pairs with an integer key
@@ -21,8 +25,8 @@ public class PMap {
      * @return the number of key-value mappings in this map
      */
     public Integer size() {
-        // TODO
-        return 0;
+    	
+        return PMap.size();
     }
 
     /**
@@ -33,7 +37,10 @@ public class PMap {
      *         mappings
      */
     public boolean isEmpty() {
-        // TODO
+        if(PMap.size() == 0) {
+        	return true;
+        }
+    	// TODO
         return false;
     }
 
@@ -46,7 +53,12 @@ public class PMap {
      *         specified key
      */
     public boolean containsKey(Integer key) {
-        // TODO
+        for(int i:pMap.entrySet()) {
+        	if(PMap.getKey() == key) {
+        		return true;
+        	}
+        }
+    	// TODO
         return false;
     }
 
@@ -59,6 +71,11 @@ public class PMap {
      *         specified value
      */
     public boolean containsValue(Integer value) {
+    	for(int i:pMap.entrySet()) {
+    		if(pMap.getValue() == value) {
+    			return true;
+    		}
+    	}
         // TODO
         return false;
     }
@@ -73,8 +90,13 @@ public class PMap {
      *         key
      */
     public Integer get(Integer key) {
+    	for(int i:pMap.entrySet()) {
+    		if (pMap.getKey() == key) {
+    			return pMap.getValue();
+    		}
+    	}
         // TODO
-        return 0;
+        return null;
     }
 
     /**
@@ -90,8 +112,13 @@ public class PMap {
      *         <tt>null</tt> if there was no mapping for <tt>key</tt>.
      */
     public Integer put(Integer key, Integer value) {
+    	for(int i:pMap.entrySet()) {
+    		if(pMap.getKey() == key) {
+    			pMap.setValue(value);
+    		}
+    	}
         // TODO
-        return 0;
+        return null;
     }
 
     /**
@@ -110,8 +137,16 @@ public class PMap {
      *         <tt>null</tt> if there was no mapping for <tt>key</tt>.
      */
     public Integer remove(Integer key) {
+    	Integer temp = null;
+    	for(int i:PMap.entrySet()) {
+    		if(PMap.getKey() == key) {
+    			temp = pMap.getValue();
+    			pMap.remove(Integer key);
+    		}
+    	}
+    	return temp;
         // TODO
-        return 0;
+        
     }
 
     /**
@@ -123,6 +158,11 @@ public class PMap {
      * @param values the array of values to be stored in this map
      */
     public void putAll(Integer[] keys, Integer[] values) {
+
+    	for(int i; i<keys.size(); i++) {
+    		
+    		PEntry(keys[i], values[i]);
+    	}
         // TODO
     }
 
@@ -131,6 +171,7 @@ public class PMap {
      * empty after this call returns.
      */
     public void clear() {
+    	PMap.clear();
         // TODO
     }
 
@@ -140,8 +181,12 @@ public class PMap {
      * @return an array of the keys contained in this map
      */
     public Integer[] keySet() {
+    	Integer[] keysArrayIntegers = new Integer[PMap.size()];
+    	for(int i:PMap.entrySet()) {
+    		keysArrayIntegers[i]= PMap.getKey(); 
+    	}
         // TODO
-        return null;
+        return keysArrayIntegers;
     }
 
     /**
@@ -150,8 +195,12 @@ public class PMap {
      * @return an array of the values contained in this map
      */
     public Integer[] values() {
+    	Integer[] valuesArrayIntegers = new Integer[PMap.size()];
+    	for(int i:PMap.entrySet()) {
+    		valuesArrayIntegers[i]= PMap.getValue(); 
+    	}
         // TODO
-        return null;
+        return valuesArrayIntegers;
     }
 
     /**
@@ -160,7 +209,12 @@ public class PMap {
      * @return an array of the mappings contained in this map
      */
     public PEntry[] entrySet() {
+    	PEntry[] mappingArray = new PEntry[PMap.size()];
+    	for(int i:PMap.entrySet()) {
+    		PEntry temp = (PEntry)PMap.getKey();
+    		mappingArray[i]= temp;
+    	}
         // TODO
-        return null;
+        return mappingArray;
     }
 }
